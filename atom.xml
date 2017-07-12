@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://mingdeng.github.io/blog/"/>
   <updated>2017-07-12T07:55:19.925Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://mingdeng.github.io/blog/</id>
   
   <author>
     <name>John Doe</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>title</title>
-    <link href="http://yoursite.com/2017/07/12/title/"/>
-    <id>http://yoursite.com/2017/07/12/title/</id>
+    <link href="https://mingdeng.github.io/blog/2017/07/12/title/"/>
+    <id>https://mingdeng.github.io/blog/2017/07/12/title/</id>
     <published>2017-07-12T06:55:11.000Z</published>
     <updated>2017-07-12T07:55:19.925Z</updated>
     
@@ -56,8 +56,8 @@ categories: [一级分类, 二级分类]
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/07/12/hello-world/"/>
-    <id>http://yoursite.com/2017/07/12/hello-world/</id>
+    <link href="https://mingdeng.github.io/blog/2017/07/12/hello-world/"/>
+    <id>https://mingdeng.github.io/blog/2017/07/12/hello-world/</id>
     <published>2017-07-12T06:14:55.550Z</published>
     <updated>2017-07-12T06:14:55.550Z</updated>
     
