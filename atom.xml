@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Ming Deng</title>
-  
+  <title>明灯</title>
+  <subtitle>信念的支架轰然倒塌，平静之后才发现面临的困境不是生活的磨难，而是要去寻找灵魂中的那一盏明灯。</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://mingdeng.github.io/blog/"/>
