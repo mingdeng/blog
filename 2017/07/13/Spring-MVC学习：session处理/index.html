@@ -82,8 +82,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/blog/atom.xml" title="明灯" type="application/atom+xml" />
 
@@ -97,17 +95,19 @@
 
 
 
-<meta name="description" content="1. ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/d">
+<meta name="description" content="在web开发中，session的重要性不言而喻，与cookie相比，session更加安全，处于服务器端，开发者经常把一些重要的信息放在session，方便在多次请求中方便的获取信息，Spring MVC 对session的支持也依旧很强大很灵活。 Spring MVC对session的支持分为两种基于HttpSession的天然支持基于注解@SessionAttributes的灵活多变的支持 首">
 <meta name="keywords" content="Spring MVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring MVC学习：处理方法返回值的可选类型">
-<meta property="og:url" content="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/index.html">
+<meta property="og:title" content="Spring MVC学习：session处理">
+<meta property="og:url" content="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：session处理/index.html">
 <meta property="og:site_name" content="明灯">
-<meta property="og:description" content="1. ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/d">
-<meta property="og:updated_time" content="2017-07-13T01:25:51.462Z">
+<meta property="og:description" content="在web开发中，session的重要性不言而喻，与cookie相比，session更加安全，处于服务器端，开发者经常把一些重要的信息放在session，方便在多次请求中方便的获取信息，Spring MVC 对session的支持也依旧很强大很灵活。 Spring MVC对session的支持分为两种基于HttpSession的天然支持基于注解@SessionAttributes的灵活多变的支持 首">
+<meta property="og:image" content="https://mingdeng.github.io/blog/img/20160401164819289.png">
+<meta property="og:updated_time" content="2017-07-13T02:00:16.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring MVC学习：处理方法返回值的可选类型">
-<meta name="twitter:description" content="1. ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/d">
+<meta name="twitter:title" content="Spring MVC学习：session处理">
+<meta name="twitter:description" content="在web开发中，session的重要性不言而喻，与cookie相比，session更加安全，处于服务器端，开发者经常把一些重要的信息放在session，方便在多次请求中方便的获取信息，Spring MVC 对session的支持也依旧很强大很灵活。 Spring MVC对session的支持分为两种基于HttpSession的天然支持基于注解@SessionAttributes的灵活多变的支持 首">
+<meta name="twitter:image" content="https://mingdeng.github.io/blog/img/20160401164819289.png">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/"/>
+  <link rel="canonical" href="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：session处理/"/>
 
 
 
 
 
-  <title>Spring MVC学习：处理方法返回值的可选类型 | 明灯</title>
+  <title>Spring MVC学习：session处理 | 明灯</title>
   
 
 
@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingdeng.github.io/blog/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/">
+    <link itemprop="mainEntityOfPage" href="https://mingdeng.github.io/blog/blog/2017/07/13/Spring-MVC学习：session处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="明灯">
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring MVC学习：处理方法返回值的可选类型</h1>
+          <h1 class="post-title" itemprop="name headline">Spring MVC学习：session处理</h1>
         
 
         <div class="post-meta">
@@ -279,7 +279,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T09:24:44+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T09:50:29+08:00">
                 2017-07-13
               </time>
             
@@ -314,11 +314,10 @@
       
 
       
-        <h3 id="1-ModelAndView"><a href="#1-ModelAndView" class="headerlink" title="1. ModelAndView"></a>1. ModelAndView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/show1"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">show1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;  </div><div class="line">    ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/demo2/show"</span>);  </div><div class="line">    mav.addObject(<span class="string">"account"</span>, <span class="string">"account -1"</span>);  </div><div class="line">    <span class="keyword">return</span> mav;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过ModelAndView构造方法可以指定返回的页面名称，也可以通过setViewName()方法跳转到指定的页面 , 使用addObject()设置需要返回的值，addObject()有几个不同参数的方法，可以默认和指定返回对象的名字。 调用addObject()方法将值设置到一个名为ModelMap的类属性，ModelMap是LinkedHashMap的子类。</p>
-<h3 id="2-String"><a href="#2-String" class="headerlink" title="2. String"></a>2. String</h3><p>指定返回的视图页面名称，结合设置的返回地址路径加上页面名称后缀即可访问到。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcomeHandler</span><span class="params">()</span> </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"center"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>对应的逻辑视图名为“center”，URL= prefix前缀+视图名称 +suffix后缀组成。<br>注意：如果方法声明了注解@ResponseBody ，则会直接将返回值输出到页面。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/something"</span>, method = RequestMethod.GET)  </div><div class="line"><span class="meta">@ResponseBody</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">helloWorld</span><span class="params">()</span>  </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面的结果会将文本”Hello World “直接写到http响应流。 </p>
+        <p>在web开发中，session的重要性不言而喻，与cookie相比，session更加安全，处于服务器端，开发者经常把一些重要的信息放在session，方便在多次请求中方便的获取信息，Spring MVC 对session的支持也依旧很强大很灵活。</p>
+<p>Spring MVC对session的支持分为两种<br>基于HttpSession的天然支持<br>基于注解@SessionAttributes的灵活多变的支持</p>
+<p>首先我们先一起分析一下基于天生的HttpSession的支持吧<br>加入用户登录的时候，我们把用户信息记录到session中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.study.lyncc.web.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ModelAttribute;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</div><div class="line"><span class="keyword">import</span> org.study.lyncc.web.entity.User;</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SessionAttributesController</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * user对象存入session</div><div class="line">     * <span class="doctag">@param</span> id</div><div class="line">     * <span class="doctag">@param</span> name</div><div class="line">     * <span class="doctag">@param</span> session</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/session/test/&#123;id&#125;/&#123;name&#125;"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">localsessionAttributes</span><span class="params">(@PathVariable Integer id,@PathVariable String name,HttpSession session)</span></span>&#123;</div><div class="line">        session.setAttribute(<span class="string">"currentUser"</span>, <span class="keyword">new</span> User(id,name));</div><div class="line">        ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"session"</span>);</div><div class="line">        <span class="keyword">return</span> mav;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取session中的user对象</div><div class="line">     * <span class="doctag">@param</span> session</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/session/attributes"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">sessionAttributesage</span><span class="params">(HttpSession session)</span></span>&#123;</div><div class="line">        User u = (User)session.getAttribute(<span class="string">"currentUser"</span>);</div><div class="line">        System.out.println(u.getUsername());</div><div class="line">        ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"session"</span>);</div><div class="line">        <span class="keyword">return</span> mav;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们先请求<a href="http://localhost:8080/spring-mvc/session/test/1/lyncc" target="_blank" rel="external">http://localhost:8080/spring-mvc/session/test/1/lyncc</a><br>然后我们再次请求<a href="http://localhost:8080/spring-mvc/session/attributes" target="_blank" rel="external">http://localhost:8080/spring-mvc/session/attributes</a><br>会发现我们可以冲session取出我们上次请求存入session的user对象，并成功打印user的名字<br><img src="https://mingdeng.github.io/blog/img/20160401164819289.png" alt=""></p>
 
       
     </div>
@@ -361,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/07/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/" rel="next" title="Spring MVC学习：处理方法返回值的可选类型">
+                <i class="fa fa-chevron-left"></i> Spring MVC学习：处理方法返回值的可选类型
               </a>
             
           </div>
@@ -370,10 +369,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2017/07/13/Spring-MVC学习：session处理/" rel="prev" title="Spring MVC学习：session处理">
-                Spring MVC学习：session处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -421,17 +416,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/blog/images/avatar.gif"
@@ -491,22 +477,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-ModelAndView"><span class="nav-number">1.</span> <span class="nav-text">1. ModelAndView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-String"><span class="nav-number">2.</span> <span class="nav-text">2. String</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
