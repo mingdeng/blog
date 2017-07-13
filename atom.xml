@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://mingdeng.github.io/blog/"/>
-  <updated>2017-07-12T09:15:28.091Z</updated>
+  <updated>2017-07-13T01:25:51.462Z</updated>
   <id>https://mingdeng.github.io/blog/</id>
   
   <author>
@@ -16,45 +16,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试</title>
-    <link href="https://mingdeng.github.io/blog/2017/07/12/title/"/>
-    <id>https://mingdeng.github.io/blog/2017/07/12/title/</id>
-    <published>2017-07-12T06:55:11.000Z</published>
-    <updated>2017-07-12T09:15:28.091Z</updated>
+    <title>Spring MVC学习：处理方法返回值的可选类型</title>
+    <link href="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%8F%AF%E9%80%89%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/</id>
+    <published>2017-07-13T01:24:44.000Z</published>
+    <updated>2017-07-13T01:25:51.462Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h3><p>打开新建的文章<code>\source\_posts\postName.md</code>：</p>
-<pre><code>title: HelloWorld！ # 文章页面上的显示名称，可以任意修改，不会出现在URL中
-date: 2015-11-09 15:56:26 # 文章生成时间，一般不改
-categories:   # 文章分类目录，参数可省略
-    - 随笔
-    - 瞬间
-tags:   # 文章标签，参数可省略
-    - hexo
-    - blog # 个数不限，单个可直接跟在tags后面
----
-这里开始使用markdown格式输入你的正文。
-</code></pre><p>多级分类语法格式：（标签也可以用类似的写法）</p>
-<pre><code># 第一种
-categories:
-- 一级分类
-- 二级分类
-- etc...
-
-# 第二种：
-categories: [一级分类, 二级分类]
-</code></pre>]]></content>
+    <content type="html"><![CDATA[<h3 id="1-ModelAndView"><a href="#1-ModelAndView" class="headerlink" title="1. ModelAndView"></a>1. ModelAndView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/show1"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">show1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;  </div><div class="line">    ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/demo2/show"</span>);  </div><div class="line">    mav.addObject(<span class="string">"account"</span>, <span class="string">"account -1"</span>);  </div><div class="line">    <span class="keyword">return</span> mav;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过ModelAndView构造方法可以指定返回的页面名称，也可以通过setViewName()方法跳转到指定的页面 , 使用addObject()设置需要返回的值，addObject()有几个不同参数的方法，可以默认和指定返回对象的名字。 调用addObject()方法将值设置到一个名为ModelMap的类属性，ModelMap是LinkedHashMap的子类。</p>
+<h3 id="2-String"><a href="#2-String" class="headerlink" title="2. String"></a>2. String</h3><p>指定返回的视图页面名称，结合设置的返回地址路径加上页面名称后缀即可访问到。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcomeHandler</span><span class="params">()</span> </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"center"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对应的逻辑视图名为“center”，URL= prefix前缀+视图名称 +suffix后缀组成。<br>注意：如果方法声明了注解@ResponseBody ，则会直接将返回值输出到页面。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/something"</span>, method = RequestMethod.GET)  </div><div class="line"><span class="meta">@ResponseBody</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">helloWorld</span><span class="params">()</span>  </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的结果会将文本”Hello World “直接写到http响应流。 </p>
+]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;编辑文章&quot;&gt;&lt;a href=&quot;#编辑文章&quot; class=&quot;headerlink&quot; title=&quot;编辑文章&quot;&gt;&lt;/a&gt;编辑文章&lt;/h3&gt;&lt;p&gt;打开新建的文章&lt;code&gt;\source\_posts\postName.md&lt;/code&gt;：&lt;/p&gt;
-&lt;pre&gt;&lt;code
+      &lt;h3 id=&quot;1-ModelAndView&quot;&gt;&lt;a href=&quot;#1-ModelAndView&quot; class=&quot;headerlink&quot; title=&quot;1. ModelAndView&quot;&gt;&lt;/a&gt;1. ModelAndView&lt;/h3&gt;&lt;figure class=&quot;highligh
     
     </summary>
     
     
-      <category term="hexo" scheme="https://mingdeng.github.io/blog/tags/hexo/"/>
-    
-      <category term="NexT" scheme="https://mingdeng.github.io/blog/tags/NexT/"/>
+      <category term="Spring MVC" scheme="https://mingdeng.github.io/blog/tags/Spring-MVC/"/>
     
   </entry>
   
