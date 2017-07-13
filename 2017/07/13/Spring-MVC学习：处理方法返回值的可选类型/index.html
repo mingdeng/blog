@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="1. ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/d">
+<meta name="description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
 <meta name="keywords" content="Spring MVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring MVC学习：处理方法返回值的可选类型">
 <meta property="og:url" content="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/index.html">
 <meta property="og:site_name" content="明灯">
-<meta property="og:description" content="1. ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/d">
-<meta property="og:updated_time" content="2017-07-13T01:25:51.462Z">
+<meta property="og:description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
+<meta property="og:updated_time" content="2017-07-13T02:33:10.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC学习：处理方法返回值的可选类型">
-<meta name="twitter:description" content="1. ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/d">
+<meta name="twitter:description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
 
 
 
@@ -312,9 +312,9 @@
       
 
       
-        <h3 id="1-ModelAndView"><a href="#1-ModelAndView" class="headerlink" title="1. ModelAndView"></a>1. ModelAndView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/show1"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">show1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;  </div><div class="line">    ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/demo2/show"</span>);  </div><div class="line">    mav.addObject(<span class="string">"account"</span>, <span class="string">"account -1"</span>);  </div><div class="line">    <span class="keyword">return</span> mav;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="ModelAndView"><a href="#ModelAndView" class="headerlink" title="ModelAndView"></a>ModelAndView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/show1"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">show1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;  </div><div class="line">    ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/demo2/show"</span>);  </div><div class="line">    mav.addObject(<span class="string">"account"</span>, <span class="string">"account -1"</span>);  </div><div class="line">    <span class="keyword">return</span> mav;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过ModelAndView构造方法可以指定返回的页面名称，也可以通过setViewName()方法跳转到指定的页面 , 使用addObject()设置需要返回的值，addObject()有几个不同参数的方法，可以默认和指定返回对象的名字。 调用addObject()方法将值设置到一个名为ModelMap的类属性，ModelMap是LinkedHashMap的子类。</p>
-<h3 id="2-String"><a href="#2-String" class="headerlink" title="2. String"></a>2. String</h3><p>指定返回的视图页面名称，结合设置的返回地址路径加上页面名称后缀即可访问到。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcomeHandler</span><span class="params">()</span> </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"center"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>指定返回的视图页面名称，结合设置的返回地址路径加上页面名称后缀即可访问到。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcomeHandler</span><span class="params">()</span> </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"center"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>对应的逻辑视图名为“center”，URL= prefix前缀+视图名称 +suffix后缀组成。<br>注意：如果方法声明了注解@ResponseBody ，则会直接将返回值输出到页面。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/something"</span>, method = RequestMethod.GET)  </div><div class="line"><span class="meta">@ResponseBody</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">helloWorld</span><span class="params">()</span>  </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>上面的结果会将文本”Hello World “直接写到http响应流。 </p>
 
@@ -499,7 +499,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-ModelAndView"><span class="nav-number">1.</span> <span class="nav-text">1. ModelAndView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-String"><span class="nav-number">2.</span> <span class="nav-text">2. String</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ModelAndView"><span class="nav-number">1.</span> <span class="nav-text">ModelAndView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">2.</span> <span class="nav-text">String</span></a></li></ol></div>
             
 
           </div>
