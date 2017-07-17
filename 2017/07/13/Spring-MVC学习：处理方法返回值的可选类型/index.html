@@ -82,6 +82,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="明灯" type="application/atom+xml" />
 
@@ -102,7 +104,7 @@
 <meta property="og:url" content="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/index.html">
 <meta property="og:site_name" content="明灯">
 <meta property="og:description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
-<meta property="og:updated_time" content="2017-07-13T02:33:10.462Z">
+<meta property="og:updated_time" content="2017-07-17T00:39:40.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC学习：处理方法返回值的可选类型">
 <meta name="twitter:description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
@@ -317,6 +319,7 @@
 <h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>指定返回的视图页面名称，结合设置的返回地址路径加上页面名称后缀即可访问到。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcomeHandler</span><span class="params">()</span> </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"center"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>对应的逻辑视图名为“center”，URL= prefix前缀+视图名称 +suffix后缀组成。<br>注意：如果方法声明了注解@ResponseBody ，则会直接将返回值输出到页面。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/something"</span>, method = RequestMethod.GET)  </div><div class="line"><span class="meta">@ResponseBody</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">helloWorld</span><span class="params">()</span>  </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>上面的结果会将文本”Hello World “直接写到http响应流。 </p>
+<p>為眾人抱薪者， 不可使其凍斃於風雪。<br>為自由開路者， 不可使其困頓於荊棘。</p>
 
       
     </div>
