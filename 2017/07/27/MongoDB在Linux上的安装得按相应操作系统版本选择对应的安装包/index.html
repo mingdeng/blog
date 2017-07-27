@@ -77,10 +77,12 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring MVC," />
+  <meta name="keywords" content="MongoDB," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="明灯" type="application/atom+xml" />
@@ -95,17 +97,20 @@
 
 
 
-<meta name="description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
-<meta name="keywords" content="Spring MVC">
+<meta name="description" content="查看linux版本，登录到服务器执行 lsb_release -a ,即可列出所有版本信息,例如:123456[root@iZ2ze52ae53tee9f7tscq5Z ~]# lsb_release -aLSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64">
+<meta name="keywords" content="MongoDB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring MVC学习：处理方法返回值的可选类型">
-<meta property="og:url" content="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/index.html">
+<meta property="og:title" content="MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包">
+<meta property="og:url" content="https://mingdeng.github.io/blog/2017/07/27/MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包/index.html">
 <meta property="og:site_name" content="明灯">
-<meta property="og:description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
-<meta property="og:updated_time" content="2017-07-17T00:39:40.680Z">
+<meta property="og:description" content="查看linux版本，登录到服务器执行 lsb_release -a ,即可列出所有版本信息,例如:123456[root@iZ2ze52ae53tee9f7tscq5Z ~]# lsb_release -aLSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64">
+<meta property="og:image" content="https://mingdeng.github.io/img/20170727163216.png">
+<meta property="og:image" content="https://mingdeng.github.io/img/1062275096.png">
+<meta property="og:updated_time" content="2017-07-27T08:46:50.153Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring MVC学习：处理方法返回值的可选类型">
-<meta name="twitter:description" content="ModelAndView123456@RequestMapping(&quot;/show1&quot;)  public ModelAndView show1(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;      ModelAndView mav = new ModelAndView(&quot;/demo">
+<meta name="twitter:title" content="MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包">
+<meta name="twitter:description" content="查看linux版本，登录到服务器执行 lsb_release -a ,即可列出所有版本信息,例如:123456[root@iZ2ze52ae53tee9f7tscq5Z ~]# lsb_release -aLSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64">
+<meta name="twitter:image" content="https://mingdeng.github.io/img/20170727163216.png">
 
 
 
@@ -133,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/"/>
+  <link rel="canonical" href="https://mingdeng.github.io/blog/2017/07/27/MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包/"/>
 
 
 
 
 
-  <title>Spring MVC学习：处理方法返回值的可选类型 | 明灯</title>
+  <title>MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包 | 明灯</title>
   
 
 
@@ -248,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://mingdeng.github.io/blog/2017/07/13/Spring-MVC学习：处理方法返回值的可选类型/">
+    <link itemprop="mainEntityOfPage" href="https://mingdeng.github.io/blog/2017/07/27/MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="明灯">
@@ -265,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring MVC学习：处理方法返回值的可选类型</h1>
+          <h1 class="post-title" itemprop="name headline">MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包</h1>
         
 
         <div class="post-meta">
@@ -277,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T09:24:44+08:00">
-                2017-07-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T16:23:19+08:00">
+                2017-07-27
               </time>
             
 
@@ -312,12 +317,9 @@
       
 
       
-        <h3 id="ModelAndView"><a href="#ModelAndView" class="headerlink" title="ModelAndView"></a>ModelAndView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/show1"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">show1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;  </div><div class="line">    ModelAndView mav = <span class="keyword">new</span> ModelAndView(<span class="string">"/demo2/show"</span>);  </div><div class="line">    mav.addObject(<span class="string">"account"</span>, <span class="string">"account -1"</span>);  </div><div class="line">    <span class="keyword">return</span> mav;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过ModelAndView构造方法可以指定返回的页面名称，也可以通过setViewName()方法跳转到指定的页面 , 使用addObject()设置需要返回的值，addObject()有几个不同参数的方法，可以默认和指定返回对象的名字。 调用addObject()方法将值设置到一个名为ModelMap的类属性，ModelMap是LinkedHashMap的子类。</p>
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>指定返回的视图页面名称，结合设置的返回地址路径加上页面名称后缀即可访问到。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">welcomeHandler</span><span class="params">()</span> </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"center"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>对应的逻辑视图名为“center”，URL= prefix前缀+视图名称 +suffix后缀组成。<br>注意：如果方法声明了注解@ResponseBody ，则会直接将返回值输出到页面。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/something"</span>, method = RequestMethod.GET)  </div><div class="line"><span class="meta">@ResponseBody</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">helloWorld</span><span class="params">()</span>  </span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面的结果会将文本”Hello World “直接写到http响应流。 </p>
-<p>為眾人抱薪者， 不可使其凍斃於風雪。<br>為自由開路者， 不可使其困頓於荊棘。</p>
+        <p>查看linux版本，登录到服务器执行 lsb_release -a ,即可列出所有版本信息,例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@iZ2ze52ae53tee9f7tscq5Z ~]# lsb_release -a</div><div class="line">LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch</div><div class="line">Distributor ID: CentOS</div><div class="line">Description:    CentOS release 6.8 (Final)</div><div class="line">Release:        6.8</div><div class="line">Codename:       Final</div></pre></td></tr></table></figure></p>
+<p>注:这个命令适用于所有的linux，包括Redhat、SuSE、Debian等发行版。<br>我的系统是CenOS6.8，按相应操作系统版本选择对应的安装包如centos6 rhel6选择RHEL 6 Linux 64ibt，即mongodb-linux-x86_64-rhel62-3.4.6.tgz这个安装包。<br><img src="https://mingdeng.github.io/img/20170727163216.png" alt=""><br>今天遇到了一个坑，就是在CentOS6上安装CentOS7环境下的版本，即mongodb-linux-x86_64-rhel70-3.4.6.tgz安装包，运行mongod报错libc.so.6: versionGLIBC_2.14’ not found`。<br><img src="https://mingdeng.github.io/img/1062275096.png" alt=""><br>这个问题非常不好解决，原因是系统的glibc版本太低，软件编译时使用了较高版本的glibc引起的。glibc是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。<br>查看glibc版本命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">[root@iZ2ze52ae53tee9f7tscq5Z ~]# ldd --version</div><div class="line">ldd (GNU libc) 2.12</div><div class="line">Copyright (C) 2010 Free Software Foundation, Inc.</div><div class="line">This is free software; see the source for copying conditions.  There is NO</div><div class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</div><div class="line">由 Roland McGrath 和 Ulrich Drepper 编写。</div><div class="line">[root@iZ2ze52ae53tee9f7tscq5Z ~]# strings /lib64/libc.so.6 |grep GLIBC_</div><div class="line">GLIBC_2.2.5</div><div class="line">GLIBC_2.2.6</div><div class="line">GLIBC_2.3</div><div class="line">GLIBC_2.3.2</div><div class="line">GLIBC_2.3.3</div><div class="line">GLIBC_2.3.4</div><div class="line">GLIBC_2.4</div><div class="line">GLIBC_2.5</div><div class="line">GLIBC_2.6</div><div class="line">GLIBC_2.7</div><div class="line">GLIBC_2.8</div><div class="line">GLIBC_2.9</div><div class="line">GLIBC_2.10</div><div class="line">GLIBC_2.11</div><div class="line">GLIBC_2.12</div><div class="line">GLIBC_PRIVATE</div></pre></td></tr></table></figure></p>
+<p>所以CentOS6用mongodb rhel62安装包版本，glibc不会出现这种问题。</p>
 
       
     </div>
@@ -368,7 +370,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Spring-MVC/" rel="tag"># Spring MVC</a>
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
           
         </div>
       
@@ -381,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/07/27/Linux下mysql5-7的远程连接/" rel="next" title="Linux下mysql5.7的远程连接">
+                <i class="fa fa-chevron-left"></i> Linux下mysql5.7的远程连接
               </a>
             
           </div>
@@ -390,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/13/Spring-MVC学习：session处理/" rel="prev" title="Spring MVC学习：session处理">
-                Spring MVC学习：session处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,17 +439,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -511,22 +500,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ModelAndView"><span class="nav-number">1.</span> <span class="nav-text">ModelAndView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">2.</span> <span class="nav-text">String</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

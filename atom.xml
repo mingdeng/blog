@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mingdeng.github.io/blog/"/>
-  <updated>2017-07-27T02:30:44.491Z</updated>
+  <updated>2017-07-27T08:46:50.153Z</updated>
   <id>https://mingdeng.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包</title>
+    <link href="https://mingdeng.github.io/blog/2017/07/27/MongoDB%E5%9C%A8Linux%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E5%BE%97%E6%8C%89%E7%9B%B8%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85/"/>
+    <id>https://mingdeng.github.io/blog/2017/07/27/MongoDB在Linux上的安装得按相应操作系统版本选择对应的安装包/</id>
+    <published>2017-07-27T08:23:19.000Z</published>
+    <updated>2017-07-27T08:46:50.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>查看linux版本，登录到服务器执行 lsb_release -a ,即可列出所有版本信息,例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@iZ2ze52ae53tee9f7tscq5Z ~]# lsb_release -a</div><div class="line">LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch</div><div class="line">Distributor ID: CentOS</div><div class="line">Description:    CentOS release 6.8 (Final)</div><div class="line">Release:        6.8</div><div class="line">Codename:       Final</div></pre></td></tr></table></figure></p>
+<p>注:这个命令适用于所有的linux，包括Redhat、SuSE、Debian等发行版。<br>我的系统是CenOS6.8，按相应操作系统版本选择对应的安装包如centos6 rhel6选择RHEL 6 Linux 64ibt，即mongodb-linux-x86_64-rhel62-3.4.6.tgz这个安装包。<br><img src="https://mingdeng.github.io/img/20170727163216.png" alt=""><br>今天遇到了一个坑，就是在CentOS6上安装CentOS7环境下的版本，即mongodb-linux-x86_64-rhel70-3.4.6.tgz安装包，运行mongod报错libc.so.6: versionGLIBC_2.14’ not found`。<br><img src="https://mingdeng.github.io/img/1062275096.png" alt=""><br>这个问题非常不好解决，原因是系统的glibc版本太低，软件编译时使用了较高版本的glibc引起的。glibc是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。<br>查看glibc版本命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">[root@iZ2ze52ae53tee9f7tscq5Z ~]# ldd --version</div><div class="line">ldd (GNU libc) 2.12</div><div class="line">Copyright (C) 2010 Free Software Foundation, Inc.</div><div class="line">This is free software; see the source for copying conditions.  There is NO</div><div class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</div><div class="line">由 Roland McGrath 和 Ulrich Drepper 编写。</div><div class="line">[root@iZ2ze52ae53tee9f7tscq5Z ~]# strings /lib64/libc.so.6 |grep GLIBC_</div><div class="line">GLIBC_2.2.5</div><div class="line">GLIBC_2.2.6</div><div class="line">GLIBC_2.3</div><div class="line">GLIBC_2.3.2</div><div class="line">GLIBC_2.3.3</div><div class="line">GLIBC_2.3.4</div><div class="line">GLIBC_2.4</div><div class="line">GLIBC_2.5</div><div class="line">GLIBC_2.6</div><div class="line">GLIBC_2.7</div><div class="line">GLIBC_2.8</div><div class="line">GLIBC_2.9</div><div class="line">GLIBC_2.10</div><div class="line">GLIBC_2.11</div><div class="line">GLIBC_2.12</div><div class="line">GLIBC_PRIVATE</div></pre></td></tr></table></figure></p>
+<p>所以CentOS6用mongodb rhel62安装包版本，glibc不会出现这种问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;查看linux版本，登录到服务器执行 lsb_release -a ,即可列出所有版本信息,例如:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;
+    
+    </summary>
+    
+    
+      <category term="MongoDB" scheme="https://mingdeng.github.io/blog/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux下mysql5.7的远程连接</title>
