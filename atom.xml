@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mingdeng.github.io/blog/"/>
-  <updated>2017-07-27T02:24:27.248Z</updated>
+  <updated>2017-07-27T02:27:03.240Z</updated>
   <id>https://mingdeng.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://mingdeng.github.io/blog/2017/07/27/Linux%E4%B8%8Bmysql5-7%E7%9A%84%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"/>
     <id>https://mingdeng.github.io/blog/2017/07/27/Linux下mysql5-7的远程连接/</id>
     <published>2017-07-27T02:03:32.000Z</published>
-    <updated>2017-07-27T02:24:27.248Z</updated>
+    <updated>2017-07-27T02:27:03.240Z</updated>
     
     <content type="html"><![CDATA[<p>1.远程连接上Linux系统，确保Linux系统已经安装上了MySQL数据库。登陆数据库。mysql -uroot -p（密码）。<br><img src="https://mingdeng.github.io/img/345289006.jpg" alt=""><br>2.创建用户用来远程连接<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'itoffice'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</div></pre></td></tr></table></figure></p>
 <p>（第一个root表示用户名，%表示所有的电脑都可以连接，也可以设置某个ip地址运行连接，第二个itoffice表示密码）。<br><img src="https://mingdeng.github.io/img/20170727101102.png" alt=""><br>报错如下：<br>ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement<br>报错提示告诉我们，需要重新设置密码。那我们就重新设置一下密码，命令如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'123456'</span>);</div></pre></td></tr></table></figure></p>
@@ -37,7 +37,7 @@
     </summary>
     
     
-      <category term="Linux,Mysql" scheme="https://mingdeng.github.io/blog/tags/Linux-Mysql/"/>
+      <category term="Mysql" scheme="https://mingdeng.github.io/blog/tags/Mysql/"/>
     
   </entry>
   
