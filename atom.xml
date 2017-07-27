@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mingdeng.github.io/blog/"/>
-  <updated>2017-07-17T00:39:20.646Z</updated>
+  <updated>2017-07-27T01:44:02.161Z</updated>
   <id>https://mingdeng.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL5.7更改密码时出现ERROR 1054 (42S22) Unknown column &#39;password&#39; in &#39;field list&#39;</title>
+    <link href="https://mingdeng.github.io/blog/2017/07/27/MySQL5-7%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81%E6%97%B6%E5%87%BA%E7%8E%B0ERROR-1054-42S22-Unknown-column-password-in-field-list/"/>
+    <id>https://mingdeng.github.io/blog/2017/07/27/MySQL5-7更改密码时出现ERROR-1054-42S22-Unknown-column-password-in-field-list/</id>
+    <published>2017-07-27T01:43:04.000Z</published>
+    <updated>2017-07-27T01:44:02.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>新安装的MySQL5.7，登录时提示密码错误，安装的时候并没有更改密码，后来通过免密码登录的方式更改密码，输入update mysql.user set password=password(‘root’) where user=’root’时提示ERROR 1054 (42S22): Unknown column ‘password’ in ‘field list’，原来是mysql数据库下已经没有password这个字段了，password字段改成了authentication_string<br>所以更改语句替换为<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span> <span class="keyword">SET</span> authentication_string=<span class="keyword">PASSWORD</span>(<span class="string">'root'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span> <span class="keyword">AND</span> Host = <span class="string">'localhost'</span>;</div></pre></td></tr></table></figure></p>
+<p>句末的；一定要写。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新安装的MySQL5.7，登录时提示密码错误，安装的时候并没有更改密码，后来通过免密码登录的方式更改密码，输入update mysql.user set password=password(‘root’) where user=’root’时提示ERROR 1054 (42
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://mingdeng.github.io/blog/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring MVC学习：session处理</title>
